@@ -1,14 +1,15 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Introduction\nThe Customer 360 sample data is an integrated dataset of 1) accounts and account owners, 2) purchases by the people who own those accounts, and 3) transactions between these accounts. The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.\n\n![](https://user-images.githubusercontent.com/4862919/63682754-d46f0680-c822-11e9-89ae-9c84e0aec2b3.jpg)",
+      "text": "%md\n## Introduction\nThis example shows how integrating multiple datasets, using a graph, facilitates additional analytics that can lead to new insights. We will use three small datasets for illustrative purposes. \nThe first contains accounts and account owners. The second is purchases by the people who own those accounts. The third is transactions between these accounts.\n\nThe following common graph query and analyses are then performed on this integrated dataset: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.\n\n![](https://user-images.githubusercontent.com/4862919/63682754-d46f0680-c822-11e9-89ae-9c84e0aec2b3.jpg)",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 15:06:34.690",
+      "dateUpdated": "2020-05-06 15:19:29.213",
       "config": {
         "tableHide": false,
         "editorSetting": {
           "language": "markdown",
-          "editOnDblClick": true
+          "editOnDblClick": true,
+          "completionSupport": false
         },
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
@@ -26,7 +27,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eThe Customer 360 sample data is an integrated dataset of 1) accounts and account owners, 2) purchases by the people who own those accounts, and 3) transactions between these accounts. The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://user-images.githubusercontent.com/4862919/63682754-d46f0680-c822-11e9-89ae-9c84e0aec2b3.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eThis example shows how integrating multiple datasets, using a graph, facilitates additional analytics that can lead to new insights. We will use three small datasets for illustrative purposes.\u003cbr/\u003eThe first contains accounts and account owners. The second is purchases by the people who own those accounts. The third is transactions between these accounts.\u003c/p\u003e\n\u003cp\u003eThe following common graph query and analyses are then performed on this integrated dataset: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://user-images.githubusercontent.com/4862919/63682754-d46f0680-c822-11e9-89ae-9c84e0aec2b3.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -34,15 +35,55 @@
       "jobName": "paragraph_1582463310167_-141770078",
       "id": "20190329-123523_1871171899",
       "dateCreated": "2020-02-23 13:08:30.167",
-      "dateStarted": "2020-04-27 15:06:34.751",
-      "dateFinished": "2020-04-27 15:06:35.015",
+      "dateStarted": "2020-05-06 15:19:29.224",
+      "dateFinished": "2020-05-06 15:19:29.264",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nThe first step is to load the graph into memory if necessary. The graph is defined in the pgx.conf file.\nIf successful the graph is loaded into the variable `g` of type `PgxGraph`. ",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-06 15:30:39.774",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eThe first step is to load the graph into memory if necessary. The graph is defined in the pgx.conf file.\u003cbr/\u003eIf successful the graph is loaded into the variable \u003ccode\u003eg\u003c/code\u003e of type \u003ccode\u003ePgxGraph\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1588778602619_-828982266",
+      "id": "20200506-152322_1259168416",
+      "dateCreated": "2020-05-06 15:23:22.619",
+      "dateStarted": "2020-05-06 15:30:39.788",
+      "dateFinished": "2020-05-06 15:30:39.844",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pgx\ng \u003d session.getGraph(\"Customer 360\")",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:51.219",
+      "dateUpdated": "2020-05-06 15:33:46.721",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -65,7 +106,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "PgxGraph[name\u003dCustomer 360,N\u003d15,E\u003d24,created\u003d1587994645515]"
+            "data": "PgxGraph[name\u003dCustomer 360,N\u003d15,E\u003d24,created\u003d1588777848831]"
           }
         ]
       },
@@ -73,15 +114,219 @@
       "jobName": "paragraph_1582463310204_1999191484",
       "id": "20190402-164753_989376579",
       "dateCreated": "2020-02-23 13:08:30.204",
-      "dateStarted": "2020-04-27 14:52:51.410",
-      "dateFinished": "2020-04-27 14:52:51.560",
+      "dateStarted": "2020-05-06 15:33:46.838",
+      "dateFinished": "2020-05-06 15:33:47.614",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\n// Show all properties about the account \"xxx-yyy-202\"\ng.queryPgql(\"\"\"\n  SELECT ID(a), a.account_no, a.balance\n  MATCH (a)\n  WHERE a.type \u003d \u0027account\u0027\n    AND a.account_no \u003d \u0027xxx-yyy-201\u0027\n\"\"\");",
+      "text": "%pgx\n// Let\u0027s look at what the Nodes and Edges represent (this is defined in the graph config file named all_pgx.json)\n// label() and id() are built-in functions that return the label and id values, if any, for vertices and edges.\n// This graph has no labels on the vertices. \ng.queryPgql(\"SELECT distinct label(e) MATCH ()-[e]-()\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:51.610",
+      "dateUpdated": "2020-05-06 15:49:12.319",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "label(e)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": false,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "label(e)\nowned_by\nparent_of\npurchased\ntransfer"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1588778811941_-1714710442",
+      "id": "20200506-152651_600911257",
+      "dateCreated": "2020-05-06 15:26:51.941",
+      "dateStarted": "2020-05-06 15:34:30.157",
+      "dateFinished": "2020-05-06 15:34:31.324",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pgx\n// There is a property named \u0027type\u0027 however which indicate what a vertex represents\ng.queryPgql(\"SELECT distinct v.type MATCH (v)\");",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-06 15:40:36.136",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "v.type": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": false,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "v.type\naccount\ncustomer\nmerchant"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1588779515765_-268097714",
+      "id": "20200506-153835_508842413",
+      "dateCreated": "2020-05-06 15:38:35.765",
+      "dateStarted": "2020-05-06 15:39:27.887",
+      "dateFinished": "2020-05-06 15:39:28.664",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pgx\n// List the id and account_no for vertices of type acoount\ng.queryPgql(\"SELECT id(v), v.account_no MATCH (v) WHERE v.type\u003d\u0027account\u0027\");",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-06 15:51:11.017",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id(v)": "string",
+                      "v.account_no": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": false,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "id(v)\tv.account_no\n201\txxx-yyy-201\n202\txxx-yyy-202\n203\txxx-yyy-203\n204\txxx-yyy-204\n211\txxx-zzz-001\n212\txxx-zzz-002"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1588779822051_1441318761",
+      "id": "20200506-154342_1095781679",
+      "dateCreated": "2020-05-06 15:43:42.051",
+      "dateStarted": "2020-05-06 15:46:37.962",
+      "dateFinished": "2020-05-06 15:46:38.479",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pgx\n// Show details for \"xxx-yyy-202\"\ng.queryPgql(\"\"\"\n  SELECT ID(a), a.account_no, a.balance\n  MATCH (a)\n  WHERE a.type \u003d \u0027account\u0027\n    AND a.account_no \u003d \u0027xxx-yyy-202\u0027\n\"\"\");",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-06 15:47:34.081",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -135,7 +380,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "ID(a)\ta.account_no\ta.balance\n7360274906241519163\txxx-yyy-201\t1500"
+            "data": "ID(a)\ta.account_no\ta.balance\n202\txxx-yyy-202\t200"
           }
         ]
       },
@@ -143,15 +388,15 @@
       "jobName": "paragraph_1582463310206_-719836348",
       "id": "20190329-144320_280072223",
       "dateCreated": "2020-02-23 13:08:30.207",
-      "dateStarted": "2020-04-27 14:52:51.834",
-      "dateFinished": "2020-04-27 14:52:52.135",
+      "dateStarted": "2020-05-06 13:24:36.074",
+      "dateFinished": "2020-05-06 13:24:38.957",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\n// Show any related information about the account \"xxx-yyy-202\"\ng.queryPgql(\"\"\"\n  SELECT a.account_no, LABEL(e), n.type\n  MATCH (a)-[e]-(n)\n  WHERE a.type \u003d \u0027account\u0027\n    AND a.account_no \u003d \u0027xxx-yyy-202\u0027\n  ORDER BY LABEL(e)\n\"\"\");",
+      "text": "%pgx\n// Show which other entities the account \"xxx-yyy-202\" is connected to and the edge label (i.e. reason for the connection)\ng.queryPgql(\"\"\"\n  SELECT a.account_no, LABEL(e), n.type\n  MATCH (a)-[e]-(n)\n  WHERE a.type \u003d \u0027account\u0027\n    AND a.account_no \u003d \u0027xxx-yyy-202\u0027\n  ORDER BY LABEL(e)\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:52.216",
+      "dateUpdated": "2020-05-06 15:53:28.923",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -219,9 +464,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## Pattern Matching\nFind accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:",
+      "text": "%md\n## Pattern Matching\nPGQL is convenient for detecting specific patterns.\nFind accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:52.783",
+      "dateUpdated": "2020-05-06 15:54:41.852",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -245,7 +490,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePattern Matching\u003c/h2\u003e\n\u003cp\u003eFind accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePattern Matching\u003c/h2\u003e\n\u003cp\u003ePGQL is convenient for detecting specific patterns.\u003cbr/\u003eFind accounts that had an inbound and an outbound transfer, of over 500, on the same day. The PGQL query for this is:\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -253,15 +498,15 @@
       "jobName": "paragraph_1582463310212_-397584666",
       "id": "20190329-123650_1595618116",
       "dateCreated": "2020-02-23 13:08:30.212",
-      "dateStarted": "2020-04-27 14:52:53.066",
-      "dateFinished": "2020-04-27 14:52:53.110",
+      "dateStarted": "2020-05-06 15:54:41.858",
+      "dateFinished": "2020-05-06 15:54:41.882",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\n// Show account which has inbound transfer and outbound transfer on the same day and their amount are both more than 500.\ng.queryPgql(\"\"\"\n  SELECT a.account_no, a.balance, t1.amount, t2.amount, t1.date\n  MATCH (a)\u003c-[t1:transfer]-(a1)\n      , (a)-[t2:transfer]-\u003e(a2)\n  WHERE t1.date \u003d t2.date\n    AND t1.amount \u003e 500\n    AND t2.amount \u003e 500\n    AND a.balance \u003c 300\n\"\"\");",
+      "text": "%pgx\n// Show accounts that had an inbound transfer and outbound transfer on the same day and each transaction amount was \u003e 500.\ng.queryPgql(\"\"\"\n  SELECT a.account_no, a.balance, t1.amount, t2.amount, t1.date\n  MATCH (a)\u003c-[t1:transfer]-(a1)\n      , (a)-[t2:transfer]-\u003e(a2)\n  WHERE t1.date \u003d t2.date\n    AND t1.amount \u003e 500\n    AND t2.amount \u003e 500\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:53.156",
+      "dateUpdated": "2020-05-06 15:56:15.360",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -326,8 +571,8 @@
       "jobName": "paragraph_1582463310225_2091800673",
       "id": "20190328-161704_390823673",
       "dateCreated": "2020-02-23 13:08:30.225",
-      "dateStarted": "2020-04-27 14:52:53.469",
-      "dateFinished": "2020-04-27 14:52:53.869",
+      "dateStarted": "2020-05-06 15:56:15.441",
+      "dateFinished": "2020-05-06 15:56:16.784",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -372,9 +617,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\n// Show any transactions where money is going back and forward in two accounts.\ng.queryPgql(\"\"\"\n  SELECT a1.account_no, t1.date, t1.amount, a2.account_no, t2.date, t2.amount\n  MATCH (a1)-[t1:transfer]-\u003e(a2)-[t2:transfer]-\u003e(a1)\n  WHERE t1.date \u003c t2.date\n\"\"\");",
+      "text": "%pgx\n// Show any transactions where money is going back and forth in two accounts. i.e. A-\u003eB\u003e-\u003eA\ng.queryPgql(\"\"\"\n  SELECT a1.account_no, t1.date, t1.amount, a2.account_no, t2.date, t2.amount\n  MATCH (a1)-[t1:transfer]-\u003e(a2)-[t2:transfer]-\u003e(a1)\n  WHERE t1.date \u003c t2.date\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:54.314",
+      "dateUpdated": "2020-05-06 17:42:31.857",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -446,9 +691,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\n// Show any cyclic transactions in three accounts.\ng.queryPgql(\"\"\"\n  SELECT a1.account_no, t1.amount, a2.account_no, t2.amount\n       , a3.account_no, t3.amount\n  MATCH (a1)-[t1:transfer]-\u003e(a2)-[t2:transfer]-\u003e(a3)-[t3:transfer]-\u003e(a1)\n  WHERE t1.date \u003c t2.date\n  AND t2.date \u003c t3.date\n\"\"\");",
+      "text": "%pgx\n// Show any cyclic transactions between three accounts, i.e. A-\u003eB-\u003eC-\u003eA.\ng.queryPgql(\"\"\"\n  SELECT a1.account_no, t1.amount, a2.account_no, t2.amount\n       , a3.account_no, t3.amount\n  MATCH (a1)-[t1:transfer]-\u003e(a2)-[t2:transfer]-\u003e(a3)-[t3:transfer]-\u003e(a1)\n  WHERE t1.date \u003c t2.date\n  AND t2.date \u003c t3.date\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:54.857",
+      "dateUpdated": "2020-05-06 16:08:42.178",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -520,9 +765,50 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## Influential Accounts\n\n![](https://user-images.githubusercontent.com/4862919/63682708-b5707480-c822-11e9-8c59-0cae6ed22336.jpg)",
+      "text": "%md\n## Graph Algorithms \nThe next set of examples use graph algorithms to find important or influential accounts (PageRank), detect communities (Connected Components), and make recommendations (Personalized PageRank).\n\nWe start with PageRank. The well-known PageRank algorithm identifies important or influential nodes in a graph. Here we use it to find influential accounts.",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 15:02:27.275",
+      "dateUpdated": "2020-05-06 18:14:26.063",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eGraph Algorithms\u003c/h2\u003e\n\u003cp\u003eThe next set of examples use graph algorithms to find important or influential accounts (PageRank), detect communities (Connected Components), and make recommendations (Personalized PageRank).\u003c/p\u003e\n\u003cp\u003eWe start with PageRank. The well-known PageRank algorithm identifies important or influential nodes in a graph. Here we use it to find influential accounts. In this particular graph that happens to be accounts involved in the most number of transactions.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1588788431192_1536285952",
+      "id": "20200506-180711_167988969",
+      "dateCreated": "2020-05-06 18:07:11.192",
+      "dateStarted": "2020-05-06 18:12:14.188",
+      "dateFinished": "2020-05-06 18:12:14.234",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Influential Accounts\n\n![](https://user-images.githubusercontent.com/4862919/63682708-b5707480-c822-11e9-8c59-0cae6ed22336.jpg)\nThe subgraph (i.e. just the accounts and transfers among them) looks as above.\nThe steps we need to execute to compute the PageRank of the accounts are:\n1. Create a subgraph of just the accounts and transfers among them\n2. Run the PageRank algorithm\n3. Print the results\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-06 18:19:06.221",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -546,7 +832,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eInfluential Accounts\u003c/h2\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://user-images.githubusercontent.com/4862919/63682708-b5707480-c822-11e9-8c59-0cae6ed22336.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eInfluential Accounts\u003c/h2\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://user-images.githubusercontent.com/4862919/63682708-b5707480-c822-11e9-8c59-0cae6ed22336.jpg\" /\u003e\u003cbr/\u003eThe subgraph (i.e. just the accounts and transfers among them) looks as above.\u003cbr/\u003eThe steps we need to execute to compute the PageRank of the accounts are:\u003cbr/\u003e1. Create a subgraph of just the accounts and transfers among them\u003cbr/\u003e2. Run the PageRank algorithm\u003cbr/\u003e3. Print the results\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -554,15 +840,15 @@
       "jobName": "paragraph_1582463310260_1127525625",
       "id": "20190328-163239_404136926",
       "dateCreated": "2020-02-23 13:08:30.260",
-      "dateStarted": "2020-04-27 15:02:27.277",
-      "dateFinished": "2020-04-27 15:02:27.547",
+      "dateStarted": "2020-05-06 18:19:06.228",
+      "dateFinished": "2020-05-06 18:19:06.261",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nsg \u003d g.filter(new EdgeFilter(\"edge.label()\u003d\u0027transfer\u0027\"));",
+      "text": "%pgx\n// Create a subgraph of accounts, i.e. apply a filter on the original graph to only keep edges labeled \u0027transfer\u0027 and the vertices they connect (i.e. the \u0027accounts\u0027)\nsg \u003d g.filter(new EdgeFilter(\"edge.label()\u003d\u0027transfer\u0027\"));",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:55.629",
+      "dateUpdated": "2020-05-06 18:32:32.934",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -587,7 +873,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "PgxGraph[name\u003dsub-graph_64,N\u003d6,E\u003d8,created\u003d1587999175934]"
+            "data": "PgxGraph[name\u003dsub-graph_10,N\u003d6,E\u003d8,created\u003d1588789953965]"
           }
         ]
       },
@@ -595,15 +881,15 @@
       "jobName": "paragraph_1582463310273_2054355362",
       "id": "20190328-163330_1056763914",
       "dateCreated": "2020-02-23 13:08:30.274",
-      "dateStarted": "2020-04-27 14:52:55.801",
-      "dateFinished": "2020-04-27 14:52:55.960",
+      "dateStarted": "2020-05-06 18:32:33.007",
+      "dateFinished": "2020-05-06 18:32:35.366",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nanalyst.pagerank(sg);",
+      "text": "%pgx\n// When a PGX shell starts up it pre-populates global variables\n// PgxInstance instance (a handle to the PGX Graph Server instance)\n// PgXSession session  (that we used above to load the Customer 360 graph)\n// PgxAnalyst analyst (used to runthe 50+ built-in algorithms on a graph)\n// pagerank() will create and populate a vertex property named \u0027pagerank\u0027\nanalyst.pagerank(sg);",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:56.003",
+      "dateUpdated": "2020-05-06 18:32:39.645",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -628,7 +914,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "VertexProperty[name\u003dpagerank,type\u003ddouble,graph\u003dsub-graph_64]"
+            "data": "VertexProperty[name\u003dpagerank,type\u003ddouble,graph\u003dsub-graph_10]"
           }
         ]
       },
@@ -636,15 +922,15 @@
       "jobName": "paragraph_1582463310283_-813363346",
       "id": "20190328-163457_238150311",
       "dateCreated": "2020-02-23 13:08:30.283",
-      "dateStarted": "2020-04-27 14:52:56.240",
-      "dateFinished": "2020-04-27 14:52:56.413",
+      "dateStarted": "2020-05-06 18:32:39.719",
+      "dateFinished": "2020-05-06 18:32:41.272",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nsg.queryPgql(\"\"\"\n  SELECT a.account_no, a.pagerank\n  MATCH (a)\n  ORDER BY a.pagerank DESC\n\"\"\");",
+      "text": "%pgx\n// Query the pagerank value for each vertex\nsg.queryPgql(\"\"\"\n  SELECT a.account_no, a.pagerank\n  MATCH (a)\n  ORDER BY a.pagerank DESC\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:56.446",
+      "dateUpdated": "2020-05-06 18:32:43.809",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -698,7 +984,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "a.account_no\ta.pagerank\nxxx-yyy-201\t0.18012007557258927\nxxx-yyy-204\t0.1412461615467829\nxxx-yyy-203\t0.1365633635065475\nxxx-yyy-202\t0.12293884324085073\nxxx-zzz-204\t0.05987452026569676\nxxx-zzz-204\t0.025000000000000005"
+            "data": "a.account_no\ta.pagerank\nxxx-yyy-201\t0.18012007557258927\nxxx-yyy-204\t0.1412461615467829\nxxx-yyy-203\t0.1365633635065475\nxxx-yyy-202\t0.12293884324085073\nxxx-zzz-002\t0.05987452026569676\nxxx-zzz-001\t0.025000000000000005"
           }
         ]
       },
@@ -706,8 +992,8 @@
       "jobName": "paragraph_1582463310293_1394780200",
       "id": "20190328-163543_48958968",
       "dateCreated": "2020-02-23 13:08:30.294",
-      "dateStarted": "2020-04-27 14:52:56.701",
-      "dateFinished": "2020-04-27 14:52:56.822",
+      "dateStarted": "2020-05-06 18:32:43.912",
+      "dateFinished": "2020-05-06 18:32:44.383",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -825,9 +1111,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nresult \u003d analyst.wcc(sg)",
+      "text": "%pgx\n// Now run the Weakly Connected Components algorithm\n// It returns a collection of graph partition each of which is a connected component\n// WCC should return only 1 partition for the above graph\nresult \u003d analyst.wcc(sg);\n// List the partitions and the number of vertices in each\nresult.eachWithIndex {\n    it, index -\u003e println \"Partition \" + index + \" has \" +it.size() + \" vertices\";\n} ;\n    ",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:57.619",
+      "dateUpdated": "2020-05-06 18:38:43.940",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -855,7 +1141,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ComponentCollection[name\u003d913EE44C-9CA1-4DA1-9603-C31F04708E9B,graph\u003dsub-graph_66]"
+            "data": "Partition 0 has 6 vertices\nComponentCollection[name\u003dA28827C5-1366-4056-AE5D-4F4FA7B88CF1,graph\u003dsub-graph_10]"
           }
         ]
       },
@@ -863,15 +1149,15 @@
       "jobName": "paragraph_1582463310321_-26620187",
       "id": "20190328-164119_1476039810",
       "dateCreated": "2020-02-23 13:08:30.321",
-      "dateStarted": "2020-04-27 14:52:57.774",
-      "dateFinished": "2020-04-27 14:52:57.933",
+      "dateStarted": "2020-05-06 18:36:45.519",
+      "dateFinished": "2020-05-06 18:36:45.948",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  partition \u003d result.getPartitionByVertex(v);\n  partition.each{println it.getProperty(\"account_no\")}\n}",
+      "text": "%pgx\n// List the other accounts which are in the same connected component (aka partition) as account \u0027\u0027xxx-yyy-201\u0027\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  partition \u003d result.getPartitionByVertex(v);\n  partition.each{println it.getProperty(\"account_no\")}\n}",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:57.972",
+      "dateUpdated": "2020-05-06 18:44:07.071",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -896,7 +1182,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "xxx-zzz-204\nxxx-yyy-204\nxxx-yyy-203\nxxx-yyy-201\nxxx-zzz-204\nxxx-yyy-202"
+            "data": "xxx-yyy-201\nxxx-yyy-202\nxxx-yyy-203\nxxx-yyy-204\nxxx-zzz-001\nxxx-zzz-002"
           }
         ]
       },
@@ -904,15 +1190,15 @@
       "jobName": "paragraph_1582463310339_-1954671672",
       "id": "20190328-164130_1125722494",
       "dateCreated": "2020-02-23 13:08:30.339",
-      "dateStarted": "2020-04-27 14:52:58.141",
-      "dateFinished": "2020-04-27 14:52:58.715",
+      "dateStarted": "2020-05-06 18:43:01.129",
+      "dateFinished": "2020-05-06 18:43:02.517",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nresult \u003d analyst.sccKosaraju(sg)",
+      "text": "%pgx\n// Run a strongly connected components algorithm instead. i.e. the Kosaraju SCC algorithm\n// This should return 3 partitions\nresult \u003d analyst.sccKosaraju(sg)\n\n//  List the partitions and the number of vertices in each\nresult.eachWithIndex {\n    it, index -\u003e println \"Partition \" + index + \" has \" +it.size() + \" vertices\";\n} ;",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:58.743",
+      "dateUpdated": "2020-05-06 18:43:04.944",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -937,7 +1223,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ComponentCollection[name\u003dFAB496D4-CDCF-470C-B83D-2A86AD549A88,graph\u003dsub-graph_66]\nComponentCollection[name\u003dFAB496D4-CDCF-470C-B83D-2A86AD549A88,graph\u003dsub-graph_66]\nComponentCollection[name\u003dFAB496D4-CDCF-470C-B83D-2A86AD549A88,graph\u003dsub-graph_66]"
+            "data": "Partition 0 has 1 vertices\nPartition 1 has 4 vertices\nPartition 2 has 1 vertices\nComponentCollection[name\u003dB1187C0E-C88B-4775-8F7A-5C035A57E962,graph\u003dsub-graph_10]\nComponentCollection[name\u003dB1187C0E-C88B-4775-8F7A-5C035A57E962,graph\u003dsub-graph_10]\nComponentCollection[name\u003dB1187C0E-C88B-4775-8F7A-5C035A57E962,graph\u003dsub-graph_10]"
           }
         ]
       },
@@ -945,15 +1231,15 @@
       "jobName": "paragraph_1582463310346_-2090461197",
       "id": "20190328-164236_298791382",
       "dateCreated": "2020-02-23 13:08:30.347",
-      "dateStarted": "2020-04-27 14:52:59.062",
-      "dateFinished": "2020-04-27 14:52:59.270",
+      "dateStarted": "2020-05-06 18:43:05.015",
+      "dateFinished": "2020-05-06 18:43:05.790",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  partition \u003d result.getPartitionByVertex(v);\n  partition.each{println it.getProperty(\"account_no\")}\n}",
+      "text": "%pgx\n// List the other accounts which are in the same connected component (aka partition) as account \u0027\u0027xxx-yyy-201\u0027\n// This time there should be only 4 vertices in that partition\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  partition \u003d result.getPartitionByVertex(v);\n  partition.each{println it.getProperty(\"account_no\") + \"\\t\" + it.getId()}\n}",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:59.359",
+      "dateUpdated": "2020-05-06 18:47:57.934",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -978,7 +1264,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "xxx-yyy-204\nxxx-yyy-203\nxxx-yyy-201\nxxx-yyy-202"
+            "data": "xxx-yyy-201\t201\nxxx-yyy-202\t202\nxxx-yyy-203\t203\nxxx-yyy-204\t204"
           }
         ]
       },
@@ -986,15 +1272,15 @@
       "jobName": "paragraph_1582463310350_-2073816255",
       "id": "20190328-164629_440403254",
       "dateCreated": "2020-02-23 13:08:30.350",
-      "dateStarted": "2020-04-27 14:52:59.511",
-      "dateFinished": "2020-04-27 14:53:00.003",
+      "dateStarted": "2020-05-06 18:47:58.004",
+      "dateFinished": "2020-05-06 18:47:58.776",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\ncs \u003d sg.createChangeSet()\nrs \u003d sg.queryPgql(\"SELECT DISTINCT a MATCH (a)-[:transfer]-()\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  i \u003d result.getPartitionIndexOfVertex(v)\n  cs.updateVertex(v.getId()).setProperty(\"component\", i)\n}\nsg \u003d cs.build()",
+      "text": "%pgx\n// Now add the partition index to each vertex in a newly created property named \u0027component\u0027\n\ncs \u003d sg.createChangeSet()\nrs \u003d sg.queryPgql(\"SELECT DISTINCT a MATCH (a)-[:transfer]-()\");\n// Get each vertex, find the partition it is in, add that partition index to the property \u0027component\u0027\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  i \u003d result.getPartitionIndexOfVertex(v)\n  cs.updateVertex(v.getId()).setProperty(\"component\", i)\n}\nsg \u003d cs.build();\n// list the vertex proerties \n//sg.getVertexProperties();",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:53:00.021",
+      "dateUpdated": "2020-05-06 18:56:51.713",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -1018,7 +1304,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "PgxGraph[name\u003danonymous_graph_70,N\u003d6,E\u003d8,created\u003d1587999180568]"
+            "data": "true"
           }
         ]
       },
@@ -1026,15 +1312,15 @@
       "jobName": "paragraph_1582463310355_-1418710576",
       "id": "20190510-104938_115727887",
       "dateCreated": "2020-02-23 13:08:30.355",
-      "dateStarted": "2020-04-27 14:53:00.193",
-      "dateFinished": "2020-04-27 14:53:00.613",
+      "dateStarted": "2020-05-06 18:56:51.800",
+      "dateFinished": "2020-05-06 18:56:52.521",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nsg.queryPgql(\"\"\"\n  SELECT a.component, COUNT(a.account_no)\n  MATCH (a)\n  GROUP BY a.component\n  ORDER BY a.component\n\"\"\")",
+      "text": "%pgx\n// Now list Accounts by connected component\nsg.queryPgql(\"\"\"\n  SELECT a.component, a.account_no MATCH (a)\n  WHERE a.type\u003d\u0027account\u0027 ORDER BY a.component\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:53:00.697",
+      "dateUpdated": "2020-05-06 18:58:29.814",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -1046,18 +1332,53 @@
               "optionOpen": false,
               "setting": {
                 "table": {
-                  "tableGridState": {},
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "a.component",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "a.account_no",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
                   "tableColumnTypeState": {
                     "names": {
                       "a.component": "string",
-                      "COUNT(a.account_no)": "string"
+                      "a.account_no": "string"
                     },
                     "updated": false
                   },
                   "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
                   "tableOptionValue": {
                     "useFilter": false,
-                    "showPagination": false,
+                    "showPagination": true,
                     "showAggregationFooter": false
                   },
                   "updated": false,
@@ -1083,11 +1404,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
-            "type": "ANGULAR",
-            "data": "\u003cdetails\u003e\u003csummary style\u003d\u0027cursor: pointer; cursor: hand;\u0027\u003e \u0026nbsp;\u003cem\u003e\u003cstrong\u003eException:\u003c/strong\u003e\u003c/em\u003e no vertex property named component found when compiling pgql query code: PGX-ERROR-LX06WP76KW3Z \u003cem\u003e\u003cspan style\u003d\u0027color: #9A9A9A;\u0027\u003e \u0026mdash; click for stack trace\u003c/span\u003e\u003c/em\u003e\n\u003c/summary\u003e\u003cdiv style\u003d\u0027margin-top:1em; color: #AC0000;\u0027\u003e\u003cdiv style\u003d\u0027margin-left: 3.75em; font-size: 0.9em; letter-spacing: 0.05em;\u0027\u003ejava.util.concurrent.ExecutionException \u003cstrong\u003ejava.lang.Exception: no vertex property named component found when compiling pgql query code: PGX-ERROR-LX06WP76KW3Z\u003c/strong\u003e\n\u003cdiv style\u003d\u0027margin-left: 3em;\u0027\u003e\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eCompletableFuture\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ereportGet\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (CompletableFuture.java : 357)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eCompletableFuture\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eget\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (CompletableFuture.java : 1895)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.api\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxFuture\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eget\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxFuture.java : 99)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.api\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxGraph\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003equeryPgql\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxGraph.java : 4276)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.api.PgxGraph$queryPgql\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003e1\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.runtime.callsite\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eCallSiteArray\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003edefaultCall\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (CallSiteArray.java : 47)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.runtime.callsite\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractCallSite\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractCallSite.java : 116)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.runtime.callsite\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractCallSite\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractCallSite.java : 128)\u003c/span\u003e\u003cbr\u003e\ngroovysh_evaluate.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (groovysh_evaluate : 3)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003egroovysh_evaluate\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003erun\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.runtime.callsite\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eCallSiteArray\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003edefaultCall\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (CallSiteArray.java : 47)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003egroovysh_evaluate\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003erun\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.tools.shell\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eevaluate\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Interpreter.groovy : 71)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.tools.shell.Evaluator\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eevaluate\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.codehaus.groovy.tools.shell\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eGroovysh\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eexecute\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Groovysh.groovy : 196)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.shell\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eShell\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eexecute\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Shell.java : 47)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.shell\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractConsole\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eexecute\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractConsole.java : 233)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.zeppelin\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eexecuteLine\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxInterpreter.java : 201)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream.ReferencePipeline$3\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003e1\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eaccept\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ReferencePipeline.java : 193)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.Spliterators\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eArraySpliterator\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eforEachRemaining\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Spliterators.java : 948)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractPipeline\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecopyInto\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractPipeline.java : 481)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractPipeline\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ewrapAndCopyInto\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractPipeline.java : 471)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream.ReduceOps\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eReduceOp\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eevaluateSequential\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ReduceOps.java : 708)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eAbstractPipeline\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eevaluate\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (AbstractPipeline.java : 234)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.stream\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eReferencePipeline\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecollect\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ReferencePipeline.java : 499)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.zeppelin\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eshellExecute\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxInterpreter.java : 191)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.zeppelin\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003edoInterpret\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxInterpreter.java : 187)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.zeppelin\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003einterpret\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxInterpreter.java : 148)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.apache.zeppelin.interpreter\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eLazyOpenInterpreter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003einterpret\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (LazyOpenInterpreter.java : 103)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.apache.zeppelin.interpreter.remote.RemoteInterpreterServer\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eInterpretJob\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ejobRun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (RemoteInterpreterServer.java : 632)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.apache.zeppelin.scheduler\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eJob\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Job.java : 188)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eorg.apache.zeppelin.scheduler.FIFOScheduler\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003e1\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (FIFOScheduler.java : 140)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent.Executors\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eRunnableAdapter\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003ecall\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Executors.java : 511)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eFutureTask\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (FutureTask.java : 266)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent.ScheduledThreadPoolExecutor\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eScheduledFutureTask\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eaccess$201\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ScheduledThreadPoolExecutor.java : 180)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent.ScheduledThreadPoolExecutor\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eScheduledFutureTask\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ScheduledThreadPoolExecutor.java : 293)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eThreadPoolExecutor\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erunWorker\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ThreadPoolExecutor.java : 1149)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent.ThreadPoolExecutor\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eWorker\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ThreadPoolExecutor.java : 624)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.lang\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eThread\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Thread.java : 748)\u003c/span\u003e\u003cbr\u003e\n\u003c/div\u003e\u003ci\u003ecaused by\u003c/i\u003e\u003c/div\u003e\u003cdiv style\u003d\u0027margin-left: 3.75em; font-size: 0.9em; letter-spacing: 0.05em;\u0027\u003ejava.lang.Exception \u003cstrong\u003eno vertex property named component found when compiling pgql query code: PGX-ERROR-LX06WP76KW3Z\u003c/strong\u003e\n\u003cdiv style\u003d\u0027margin-left: 3em;\u0027\u003e\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.common.marshalers\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eExceptionMarshaler\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003etoUnserializedException\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ExceptionMarshaler.java : 100)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.common.marshalers\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eExceptionMarshaler\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eunmarshal\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ExceptionMarshaler.java : 113)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eRemoteUtils\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eparseExceptionalResponse\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (RemoteUtils.java : 132)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eRemoteUtils\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003egetResponseContent\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (RemoteUtils.java : 100)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eRemoteUtils\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003egetResponseContent\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (RemoteUtils.java : 68)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eRemoteUtils\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eparse\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (RemoteUtils.java : 155)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxRemoteFuture\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003eexecuteRequest\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxRemoteFuture.java : 106)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003eoracle.pgx.client\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003ePgxRemoteFuture\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003elambda$fetchRemoteResultAsync$3\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (PgxRemoteFuture.java : 218)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eThreadPoolExecutor\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erunWorker\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ThreadPoolExecutor.java : 1149)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.util.concurrent.ThreadPoolExecutor\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eWorker\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (ThreadPoolExecutor.java : 624)\u003c/span\u003e\u003cbr\u003e\n\u003cspan style\u003d\u0027color: #AC8888\u0027\u003ejava.lang\u003c/span\u003e.\u003cspan style\u003d\u0027color: black\u0027\u003eThread\u003c/span\u003e.\u003cstrong\u003e\u003cspan style\u003d\u0027color: #AA0000\u0027\u003erun\u003c/span\u003e\u003c/strong\u003e \u003cspan style\u003d\u0027color: #CACACA;\u0027\u003e (Thread.java : 748)\u003c/span\u003e\u003cbr\u003e\n\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/details\u003e"
+            "type": "TABLE",
+            "data": "a.component\ta.account_no\n0\txxx-zzz-001\n1\txxx-yyy-202\n1\txxx-yyy-203\n1\txxx-yyy-204\n1\txxx-yyy-201\n2\txxx-zzz-002"
           }
         ]
       },
@@ -1095,15 +1416,15 @@
       "jobName": "paragraph_1582463310358_1142726119",
       "id": "20190510-104936_553977665",
       "dateCreated": "2020-02-23 13:08:30.358",
-      "dateStarted": "2020-04-27 14:53:00.835",
-      "dateFinished": "2020-04-27 14:53:01.012",
-      "status": "ERROR",
+      "dateStarted": "2020-05-06 18:57:32.259",
+      "dateFinished": "2020-05-06 18:57:32.670",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## Recommendation\n\nLastly let\u0027s use Personalized PageRank to find stores that John may purchase from given that people he is connected to have made purchases from those stores.\n\n![](https://user-images.githubusercontent.com/4862919/63682622-8f4ad480-c822-11e9-9979-b8a1525240fe.jpg)",
+      "text": "%md\n## Recommendation\n\nLastly let\u0027s use Personalized PageRank to find stores that John may purchase from given that people he is connected to have made purchases from those stores.\nThe steps are similar to the ones above. Filter the original graph to get a subgraph of just accounts and merchants.\nHwever this gives a graph like the one shown below which only has edges from accounts to merchants.\nPersonalized PageRank(PPR)  needs the reverse edges too so we add edges (labeled \u0027purchased_by\u0027) from merchants to accounts.\nThen we run the PPR for John.\n\n![](https://user-images.githubusercontent.com/4862919/63682622-8f4ad480-c822-11e9-9979-b8a1525240fe.jpg)",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 15:03:36.060",
+      "dateUpdated": "2020-05-06 19:09:08.732",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -1113,7 +1434,7 @@
         },
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "results": {},
         "enabled": true,
         "fontSize": 9.0
@@ -1143,7 +1464,7 @@
     {
       "text": "%pgx\nsg \u003d g.filter(new EdgeFilter(\"edge.label()\u003d\u0027purchased\u0027\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:46:37.388",
+      "dateUpdated": "2020-05-06 19:06:20.635",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -1168,7 +1489,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "PgxGraph[name\u003dsub-graph_45,N\u003d9,E\u003d11,created\u003d1587998797600]"
+            "data": "PgxGraph[name\u003dsub-graph_25,N\u003d9,E\u003d11,created\u003d1588791980890]"
           }
         ]
       },
@@ -1176,8 +1497,8 @@
       "jobName": "paragraph_1582463310361_-886448301",
       "id": "20190328-164719_412230931",
       "dateCreated": "2020-02-23 13:08:30.361",
-      "dateStarted": "2020-04-27 14:46:37.464",
-      "dateFinished": "2020-04-27 14:46:37.637",
+      "dateStarted": "2020-05-06 19:06:20.770",
+      "dateFinished": "2020-05-06 19:06:20.974",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1223,9 +1544,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nCS \u003d sg.createChangeSet()\nRS \u003d sg.queryPgql(\"SELECT a, x WHERE (a)-[:purchased]-\u003e(x)\")\ni \u003d 1\nfor (r in RS) {\n    a \u003d r.getVertex(1).getId()\n    x \u003d r.getVertex(2).getId()\n    CS.addEdge(x, a).setLabel(\"purchased_by\")\n    i++\n}\nsg \u003d CS.build()\nsg.queryPgql(\"\"\"\n  SELECT ID(r), a.account_no, x.name\n  MATCH (a)\u003c-[r:purchased_by]-(x)\n\"\"\")",
+      "text": "%pgx\n// For each edge labeled purchased add a reverse one labeled purcahsed_by between the vertices it connects.\nCS \u003d sg.createChangeSet();\nRS \u003d sg.queryPgql(\"SELECT a, x WHERE (a)-[:purchased]-\u003e(x)\");\ni \u003d 1;\nfor (r in RS) {\n    a \u003d r.getVertex(1).getId()\n    x \u003d r.getVertex(2).getId()\n    CS.addEdge(x, a).setLabel(\"purchased_by\")\n    i++\n}\nsg \u003d CS.build();\n// verify that the edges were created\nsg.queryPgql(\"\"\"\n  SELECT ID(r), a.account_no, x.name\n  MATCH (a)\u003c-[r:purchased_by]-(x)\n\"\"\");",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:47:10.680",
+      "dateUpdated": "2020-05-06 19:07:26.069",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -1280,7 +1601,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "ID(r)\ta.account_no\tx.name\n11\txxx-yyy-204\tKindle Store\n12\txxx-yyy-204\tAsia Books\n13\txxx-yyy-204\tABC Travel\n14\txxx-yyy-203\tKindle Store\n15\txxx-yyy-203\tApple Store\n16\txxx-yyy-203\tPC Paradise\n17\txxx-yyy-201\tApple Store\n18\txxx-yyy-201\tPC Paradise\n19\txxx-yyy-202\tApple Store\n20\txxx-yyy-202\tAsia Books\n21\txxx-yyy-202\tPC Paradise"
+            "data": "ID(r)\ta.account_no\tx.name\n11\txxx-yyy-201\tApple Store\n12\txxx-yyy-201\tPC Paradise\n13\txxx-yyy-202\tApple Store\n14\txxx-yyy-202\tPC Paradise\n15\txxx-yyy-202\tAsia Books\n16\txxx-yyy-203\tApple Store\n17\txxx-yyy-203\tPC Paradise\n18\txxx-yyy-203\tKindle Store\n19\txxx-yyy-204\tKindle Store\n20\txxx-yyy-204\tAsia Books\n21\txxx-yyy-204\tABC Travel"
           }
         ]
       },
@@ -1288,15 +1609,15 @@
       "jobName": "paragraph_1582463310365_1687717399",
       "id": "20190328-164743_692256517",
       "dateCreated": "2020-02-23 13:08:30.366",
-      "dateStarted": "2020-04-27 14:47:10.742",
-      "dateFinished": "2020-04-27 14:47:11.610",
+      "dateStarted": "2020-05-06 19:07:01.852",
+      "dateFinished": "2020-05-06 19:07:02.669",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nvertexSet \u003d sg.createVertexSet()\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\")\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  vertexSet.add(v)\n  analyst.personalizedPagerank(sg, vertexSet)\n}",
+      "text": "%pgx\n// Now run the PPR. Get the vertex for John\u0027s account. Specify that as the vetex to use in the personalization.\nvertexSet \u003d sg.createVertexSet();\nrs \u003d sg.queryPgql(\"SELECT a MATCH (a) WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\");\nfor (r in rs) {\n  v \u003d r.getVertex(1)\n  vertexSet.add(v)\n  analyst.personalizedPagerank(sg, vertexSet)\n}",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:04.640",
+      "dateUpdated": "2020-05-06 19:13:21.468",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -1329,15 +1650,15 @@
       "jobName": "paragraph_1582463310372_-1335121912",
       "id": "20190328-164812_1574533639",
       "dateCreated": "2020-02-23 13:08:30.372",
-      "dateStarted": "2020-04-27 14:52:04.687",
-      "dateFinished": "2020-04-27 14:52:05.154",
+      "dateStarted": "2020-05-06 19:09:46.742",
+      "dateFinished": "2020-05-06 19:09:47.190",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pgx\nsg.queryPgql(\"\"\"\n  SELECT ID(x), x.name, x.pagerank\n  MATCH (x)\n  WHERE x.type \u003d \u0027merchant\u0027\n    AND NOT EXISTS (\n      SELECT *\n      MATCH (x)-[:purchased_by]-\u003e(a)\n      WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\n    )\n  ORDER BY x.pagerank DESC\n\"\"\")",
+      "text": "%pgx\n// Lists the stores to recommended to John, i.e. stores that others in his network have bought from but he has not\nsg.queryPgql(\"\"\"\n  SELECT ID(x), x.name, x.pagerank\n  MATCH (x)\n  WHERE x.type \u003d \u0027merchant\u0027\n    AND NOT EXISTS (\n      SELECT *\n      MATCH (x)-[:purchased_by]-\u003e(a)\n      WHERE a.account_no \u003d \u0027xxx-yyy-201\u0027\n    )\n  ORDER BY x.pagerank DESC\n\"\"\")",
       "user": "anonymous",
-      "dateUpdated": "2020-04-27 14:52:10.857",
+      "dateUpdated": "2020-05-06 19:13:37.339",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -1392,7 +1713,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "ID(x)\tx.name\tx.pagerank\n8850312156257472393\tKindle Store\t0.04932640133302745\n4954816035466490326\tAsia Books\t0.04932640133302745\n4298169013067064335\tABC Travel\t0.01565535511504672"
+            "data": "ID(x)\tx.name\tx.pagerank\n303\tKindle Store\t0.04932640133302745\n304\tAsia Books\t0.04932640133302745\n305\tABC Travel\t0.01565535511504672"
           }
         ]
       },
@@ -1400,8 +1721,8 @@
       "jobName": "paragraph_1582463310375_-308906140",
       "id": "20190328-164916_532250489",
       "dateCreated": "2020-02-23 13:08:30.375",
-      "dateStarted": "2020-04-27 14:52:10.933",
-      "dateFinished": "2020-04-27 14:52:11.275",
+      "dateStarted": "2020-05-06 19:11:49.462",
+      "dateFinished": "2020-05-06 19:11:50.151",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1442,8 +1763,7 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "pgx:shared_process": [],
-    "spark:shared_process": []
+    "pgx:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false,
