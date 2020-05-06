@@ -3,7 +3,7 @@
     {
       "text": "%pgx\n\n// Load the pre-loaded graph.\nG \u003d session.getGraph(\"Openflights\")",
       "user": "anonymous",
-      "dateUpdated": "2020-02-23 13:37:27.182",
+      "dateUpdated": "2020-05-06 13:50:05.059",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "PgxGraph[name\u003dOpenflights,N\u003d6981,E\u003d66871,created\u003d1582439453010]"
+            "data": "PgxGraph[name\u003dOpenflights,N\u003d6981,E\u003d66871,created\u003d1588769559755]"
           }
         ]
       },
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1582464387420_-46975544",
       "id": "20190828-122856_1668676000",
       "dateCreated": "2020-02-23 13:26:27.420",
-      "dateStarted": "2020-02-23 13:36:26.819",
-      "dateFinished": "2020-02-23 13:36:26.999",
+      "dateStarted": "2020-05-06 13:50:05.260",
+      "dateFinished": "2020-05-06 13:50:05.703",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pgx\n\n// Display the names of all nodes (\u003d airports).\n\nG.queryPgql(\" SELECT a.name MATCH (a) \")",
       "user": "anonymous",
-      "dateUpdated": "2020-02-23 13:36:32.311",
+      "dateUpdated": "2020-05-06 13:50:14.085",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -100,8 +100,8 @@
       "jobName": "paragraph_1582464387427_2058649400",
       "id": "20190828-124153_1946531171",
       "dateCreated": "2020-02-23 13:26:27.427",
-      "dateStarted": "2020-02-23 13:36:32.375",
-      "dateFinished": "2020-02-23 13:36:32.766",
+      "dateStarted": "2020-05-06 13:50:14.272",
+      "dateFinished": "2020-05-06 13:50:15.061",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -174,7 +174,7 @@
     {
       "text": "%pgx\n\n// Show top 10 airlines in the number of flight routes\n\nG.queryPgql(\"\"\"\n  SELECT f.airline, COUNT(f)\n  MATCH ()-[f]-\u003e()\n  GROUP BY f.airline\n  ORDER BY COUNT(f) DESC\n  LIMIT 10\n\"\"\")",
       "user": "anonymous",
-      "dateUpdated": "2020-02-23 13:27:30.182",
+      "dateUpdated": "2020-05-06 13:50:52.488",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
@@ -233,8 +233,8 @@
       "jobName": "paragraph_1582464387428_1668846666",
       "id": "20190828-124348_694279488",
       "dateCreated": "2020-02-23 13:26:27.428",
-      "dateStarted": "2020-02-23 13:27:30.316",
-      "dateFinished": "2020-02-23 13:27:32.797",
+      "dateStarted": "2020-05-06 13:50:52.647",
+      "dateFinished": "2020-05-06 13:50:56.251",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1000,8 +1000,7 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "pgx:shared_process": [],
-    "spark:shared_process": []
+    "pgx:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
