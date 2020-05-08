@@ -8,7 +8,7 @@ DROP TABLE customer_360.transfer;
 
 CREATE TABLE customer_360.account (
   id NUMBER NOT NULL
-, type VARCHAR2(20) 
+, type VARCHAR2(20)
 , account_no VARCHAR2(20)
 , balance NUMBER
 , CONSTRAINT account_pk PRIMARY KEY (id)
@@ -18,17 +18,17 @@ INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (201,'accou
 INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (202,'account','xxx-yyy-202',200);
 INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (203,'account','xxx-yyy-203',2100);
 INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (204,'account','xxx-yyy-204',100);
-INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (211,'account','xxx-zzz-204',NULL);
-INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (212,'account','xxx-zzz-204',NULL);
+INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (211,'account','xxx-zzz-211',NULL);
+INSERT INTO customer_360.account (id,type,account_no,balance) VALUES (212,'account','xxx-zzz-212',NULL);
 COMMIT;
 
 CREATE TABLE customer_360.customer (
-  id NUMBER NOT NULL, 
+  id NUMBER NOT NULL,
   type VARCHAR2(20), 
-  name VARCHAR2(20), 
-  age NUMBER, 
-  location VARCHAR2(20), 
-  gender VARCHAR2(20), 
+  name VARCHAR2(20),
+  age NUMBER,
+  location VARCHAR2(20),
+  gender VARCHAR2(20),
   student VARCHAR2(20)
 , CONSTRAINT customer_pk PRIMARY KEY (id)
 );
@@ -40,8 +40,8 @@ INSERT INTO customer_360.customer (id,type,name,age,location,gender,student) VAL
 COMMIT;
 
 CREATE TABLE customer_360.merchant (
-  id NUMBER NOT NULL 
-, type VARCHAR2(20) 
+  id NUMBER NOT NULL
+, type VARCHAR2(20)
 , name VARCHAR2(20)
 , CONSTRAINT merchant_pk PRIMARY KEY (id)
 );
@@ -54,8 +54,8 @@ INSERT INTO customer_360.merchant (id,type,name) VALUES (305,'merchant','ABC Tra
 COMMIT;
 
 CREATE TABLE customer_360.owned_by (
-  from_id NUMBER, 
-  to_id NUMBER, 
+  from_id NUMBER,
+  to_id NUMBER,
   since VARCHAR2(20)
 );
 
@@ -73,8 +73,8 @@ CREATE TABLE customer_360.parent_of (
 INSERT INTO customer_360.parent_of (from_id,to_id) VALUES (103,104);
 
 CREATE TABLE customer_360.purchased (
-  from_id NUMBER, 
-  to_id NUMBER, 
+  from_id NUMBER,
+  to_id NUMBER,
   amount NUMBER
 );
 
